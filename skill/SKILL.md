@@ -222,8 +222,10 @@ git add .
 git commit -m "初始化：<簡報名稱>"
 gh repo create <帳號>/<repo-name> --public --source=. --push \
   --description "<簡報一句話描述>"
+# 用實際分支名開 Pages（新版 git 預設 main、舊版 master），避免寫死失敗
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 gh api repos/<帳號>/<repo-name>/pages \
-  --method POST -f "source[branch]=master" -f "source[path]=/"
+  --method POST -f "source[branch]=$BRANCH" -f "source[path]=/"
 ```
 
 回傳給使用者：

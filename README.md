@@ -33,7 +33,7 @@
 | Python 3.8+ | 安裝腳本、去背 | ✅ 必要 |
 | git | 版本控制 | ✅ 必要 |
 | [Pillow](https://pillow.readthedocs.io/) | 圖標裁切與去背 | ⚠️ 圖標功能需要 |
-| [Draw Skill](https://github.com/mathruffian-dot/claude-html-slide-builder) | AI 生圖（gpt-image-2） | ⚠️ 底圖/圖標需要 |
+| Draw Skill（gpt-image-2 生圖技能）| AI 生圖 | ⚠️ 底圖/圖標需要，需自行安裝並設定 OpenAI 金鑰 |
 | OpenAI API Key | gpt-image-2 生圖 | ⚠️ 底圖/圖標需要 |
 | [GitHub CLI (gh)](https://cli.github.com/) | GitHub Pages 部署 | ⚠️ 自動部署需要 |
 | Firebase 專案 | 互動元件資料庫 | ⚠️ 互動功能需要（可用共用示範） |

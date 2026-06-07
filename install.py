@@ -190,13 +190,15 @@ def configure_firebase() -> dict:
 def inject_firebase_config(firebase_config_path: Path, fb: dict):
     """將 Firebase 設定注入 firebase-config.md"""
     content = firebase_config_path.read_text(encoding="utf-8")
+    # 注意：較長/較完整的字串必須先替換，子字串（projectId、messagingSenderId）放最後，
+    # 否則會誤傷尚未替換的 authDomain / storageBucket / appId。
     replacements = {
         "AIzaSyAYQhNavPSce17XtvDC5xnXyl9iUhW9KjA": fb["apiKey"],
         "teacherstudy-109ef.firebaseapp.com":        fb["authDomain"],
-        "teacherstudy-109ef":                        fb["projectId"],
         "teacherstudy-109ef.firebasestorage.app":    fb["storageBucket"],
-        "196599230156":                              fb["messagingSenderId"],
         "1:196599230156:web:cfe55d364df3ae1b9d5c69": fb["appId"],
+        "teacherstudy-109ef":                        fb["projectId"],
+        "196599230156":                              fb["messagingSenderId"],
     }
     for old, new in replacements.items():
         content = content.replace(old, new)
@@ -211,10 +213,7 @@ def inject_draw_path(skill_md_path: Path, draw_path: str | None):
     if not draw_path:
         return
     content = skill_md_path.read_text(encoding="utf-8")
-    content = content.replace(
-        'python "C:/Users/user/.claude/skills/draw/draw.py"',
-        f'python "{draw_path}"'
-    )
+    content = content.replace("{{DRAW_SKILL_PATH}}", draw_path)
     skill_md_path.write_text(content, encoding="utf-8")
 
 
