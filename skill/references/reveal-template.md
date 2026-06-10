@@ -151,6 +151,33 @@
 
     /* === LIVE 動畫 === */
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+    /* === RWD 響應式佈局 === */
+    @media (max-width: 768px) {
+      .stat-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .stat-card {
+        padding: 14px 20px;
+      }
+      .adv-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .vs-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .vs-center {
+        padding: 10px 0;
+        font-size: 1.2em;
+      }
+      .conclusion-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
   </style>
 </head>
 <body>

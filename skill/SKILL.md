@@ -81,6 +81,11 @@ description: |
 - 專案目錄：kebab-case 英文（`ai-course`、`math-lesson`）
 - Firestore 集合：`<slug>_wordcloud`、`<slug>_poll`（避免不同簡報資料混用）
 
+**RWD 響應式規範：**
+- 簡報設計應一律採用原生 RWD（響應式設計），禁止使用固定 1920x1080 縮放架構。
+- 讓內容與字級透過 CSS 媒體查詢（Media Queries）自適應視窗大小。
+- 讀取 `references/reveal-template.md`，其中已包含統計卡、優勢卡、對比網格在行動端（寬度小於 768px）自動摺疊為直排單欄的樣式設定，確保小螢幕上的完美呈現與閱讀體驗。
+
 **調色盤（所有簡報統一使用）：**
 ```
 --accent:  #e8643a   橘紅（主強調）
